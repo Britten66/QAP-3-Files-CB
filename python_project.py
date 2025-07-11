@@ -16,6 +16,7 @@
 #=====
 
 import datetime
+
 #=====
 #Current Date Here
 #=====
@@ -49,6 +50,30 @@ def format_phone(phone):
     middle = phone[3:0]
     end = phone[6:10]
     return "(" + area + ")" + middle + "-" + end 
+
+#Receipt ID here 
+# Format Will Look Like ( First Init , Last Init , Last3PlateNum , Last4PhoneNum )
+def receipt_gen_id():
+
+    FirstName = "Sam"
+    LastName = "Hill"
+    Plate = "ABC123"
+    Phone = "9025781616"
+
+    Initials = FirstName[0].upper() + LastName[0].upper()
+    LastThreePlate = Plate[-3:]
+
+    if len(Phone) == 10 and Phone.isdigit():
+        LastFourPhone = Phone[-4:]
+    else:
+        print("Phone Nuymber Is invalid. Please try again")
+        return
+    
+    ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
+
+    print("Receipt ID : " , ReceiptID)
+
+receipt_gen_id()
 
 
 #=====
