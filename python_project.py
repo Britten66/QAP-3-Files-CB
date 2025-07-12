@@ -25,6 +25,7 @@ CURRENT_DATE = datetime.datetime.now()
 #=====
 #Constants Listed Here. 
 #=====
+
 HST_RATE = .15
 
 LOW_LICENSE_FEE = 75.00 
@@ -38,6 +39,7 @@ MAX_SELLING_PRICE = 50000.00
 MONTHLY_INTERET = 39.99
 
 MAX_YEARS = 4 
+
 # MAX LENGTH FOR USED CAR LOAN 
 
 
@@ -45,24 +47,34 @@ MAX_YEARS = 4
 #Here The Functions Are Listed. 
 #=====
 # formatting the phone number funciton here
-def format_phone(phone):
-    area = phone[0:3]
-    middle = phone[3:0]
-    end = phone[6:10]
+
+def Format_phone(Phone):
+
+    area = Phone[0:3]
+    middle = Phone[3:6]
+    end = Phone[6:10]
     return "(" + area + ")" + middle + "-" + end 
 
-#Receipt ID here 
-# Format Will Look Like ( First Init , Last Init , Last3PlateNum , Last4PhoneNum )
-def receipt_gen_id():
+# receipt ID here 
+def Receipt_gen_id():
 
-    FirstName = "Sam"
-    LastName = "Hill"
-    Plate = "ABC123"
-    Phone = "9025781616"
+    FirstName = "Duffy" #input("Enter Your First Name: ")
+    LastName = "McDufferson" #input("Enter Your Last Name: ")
+    Plate = "Duff4588" #input("Enter Your Plate Number: ")
+    Phone = "7095365548" #input("Enter Your Phone Number: ")
+    Formatted = format_phone(Phone)
+    
 
     Initials = FirstName[0].upper() + LastName[0].upper()
     LastThreePlate = Plate[-3:]
 
+def CalcTotal(Selling, TradeInAmount):
+    
+#=====
+#User Input Starts Here. 
+#=====
+
+#Validation For Phone Numer Entery
     if len(Phone) == 10 and Phone.isdigit():
         LastFourPhone = Phone[-4:]
     else:
@@ -72,13 +84,11 @@ def receipt_gen_id():
     ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
 
     print("Receipt ID : " , ReceiptID)
+    print(Formatted)
 
-receipt_gen_id()
 
+    
 
-#=====
-#User Input Starts Here. 
-#=====
 
 
 
