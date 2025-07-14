@@ -26,7 +26,7 @@ CURRENT_DATE = datetime.datetime.now()
 #Constants Listed Here. 
 #=====
 
-HST_RATE = .15
+HST_RATE = 0.15
 
 LOW_LICENSE_FEE = 75.00 
 
@@ -46,9 +46,11 @@ MAX_YEARS = 4
 #=====
 #Here The Functions Are Listed. 
 #=====
+
+
 # formatting the phone number funciton here
 
-def Format_phone(Phone):
+def format_phone(Phone):
 
     area = Phone[0:3]
     middle = Phone[3:6]
@@ -62,33 +64,36 @@ def Receipt_gen_id():
     LastName = "McDufferson" #input("Enter Your Last Name: ")
     Plate = "Duff4588" #input("Enter Your Plate Number: ")
     Phone = "7095365548" #input("Enter Your Phone Number: ")
-    Formatted = format_phone(Phone)
-    
+     
+    if len(Phone) == 10 and Phone.isdigit():
+     LastFourPhone = Phone[-4:]
+
+    else:
+        print("Phone Number Is invalid. Please try again")
+
 
     Initials = FirstName[0].upper() + LastName[0].upper()
     LastThreePlate = Plate[-3:]
 
-def CalcTotal(Selling, TradeInAmount):
-    
-#=====
-#User Input Starts Here. 
-#=====
 
-#Validation For Phone Numer Entery
-    if len(Phone) == 10 and Phone.isdigit():
-        LastFourPhone = Phone[-4:]
-    else:
-        print("Phone Nuymber Is invalid. Please try again")
-        return
-    
+
+
     ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
-
+        
     print("Receipt ID : " , ReceiptID)
-    print(Formatted)
+
+
+    
+    return format_phone()
+
+    
+
 
 
     
 
+
+    
 
 
 
