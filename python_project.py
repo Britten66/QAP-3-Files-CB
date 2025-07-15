@@ -83,7 +83,7 @@ def Receipt_gen_id():
         #Here comments are used to help line up my invoice output details
     print()
     print()
-    print()
+    print()#Kept format as per the QAP instructions in this part. Refraining from any kind of change that is not needed
                     #1        #2        #3        #4        #5        #6        #7         #8
                     #         #         #         #         #         #         #         #
     print("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
@@ -91,15 +91,32 @@ def Receipt_gen_id():
     print("Honest Harry's Car Sales                         Invoice Date:",CURRENT_DATE.strftime("%a %m, %Y"))
     print("Used Car Salles and Receipt                      Receipt No:   ",   ReceiptID)
     print()                                           
-    print("                                           Sale Price:",)#Sale Price Here
-    print("Sold to:                                   Trade Allowance:",)#Add Trade Allowance Here
-    print("                                           -------------------------------------",)#Sale Price Here
-    print(f"{FirstName[0]}. {LastName}")
-    print(format_phone(Phone))
-
-
-
-    
+    print("                                           Sale Price:",)#Sale Price Here-
+    print("Sold to:                                   Trade Allowance:",)#Add Trade Allowance Here-
+    print("                                           -------------------------------------")
+    print(f"{FirstName[0]}. {LastName}                             Price After Trade:") #Price after Trade needs to be added -
+    print(f"{format_phone(Phone)}                              License Fee:",) # Print Out License Fee Here -
+    print("                                           Transfer Fee:")
+    print("                                           -------------------------------------")
+    print("Car Details:                               SubTotal:")
+    print("                                           HST:")
+    print("                                           -------------------------------------")
+            # Ended Before Car Details 
+        #Pick Up HEre
+    print("                                           Total Sales Price: ")
+    print()
+    print("--------------------------------------------------------------------------------")
+    print()
+    print("                                 Financing        Total          Monthly ")
+    print("  # Years      # Payments           Fee           Price          Payment")
+    print("   ---------------------------------------------------------------------")
+    print("      1              12           $999.99       $99,999.99     $9,999.99")
+    print("      2              22           $999.99       $99,999.99     $9,999.99")
+    print("      3              36           $999.99       $99,999.99     $9,999.99")
+    print("      4              48           $999.99       $99,999.99     $9,999.99")
+    print("   ---------------------------------------------------------------------")
+    print("   First Payment Date: ")
+    print("--------------------------------------------------------------------------------")
     return ReceiptID, format_phone
     
 
