@@ -84,8 +84,7 @@ def Receipt_gen_id():
 
 
     
-    return format_phone()
-
+    return ReceiptID, format_phone
     
 
 
@@ -110,3 +109,4 @@ def Receipt_gen_id():
 #=====
 #Output Starts Right Here.
 #=====
+Receipt_gen_id()
