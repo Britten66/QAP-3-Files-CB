@@ -79,8 +79,24 @@ def Receipt_gen_id():
 
 
     ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
-        
-    print("Receipt ID : " , ReceiptID)
+
+        #Here comments are used to help line up my invoice output details
+    print()
+    print()
+    print()
+                    #1        #2        #3        #4        #5        #6        #7         #8
+                    #         #         #         #         #         #         #         #
+    print("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
+    print()                                                                                             #adding dates like this allowed "/" ??
+    print("Honest Harry's Car Sales                         Invoice Date:",CURRENT_DATE.strftime("%a %m, %Y"))
+    print("Used Car Salles and Receipt                      Receipt No:   ",   ReceiptID)
+    print()                                           
+    print("                                           Sale Price:",)#Sale Price Here
+    print("Sold to:                                   Trade Allowance:",)#Add Trade Allowance Here
+    print("                                           -------------------------------------",)#Sale Price Here
+    print(f"{FirstName[0]}. {LastName}")
+    print(format_phone(Phone))
+
 
 
     
