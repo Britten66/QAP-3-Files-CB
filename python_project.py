@@ -74,12 +74,34 @@ def Receipt_gen_id():
 
     Initials = FirstName[0].upper() + LastName[0].upper()
     LastThreePlate = Plate[-3:]
+   
 
+#=====
+#Calulations Here. 
+#=====
 
+    SalePrice = input("Confirm Sale Price ($) : ")
+    SalePrice = float(SalePrice)
+    TradeAllow = 5000.00
+    TradeAllow = float(TradeAllow)
+    PriceAfterTrade = SalePrice - TradeAllow
+   
 
-
+    if PriceAfterTrade < LICENSE_PRICE_LIM:
+        LicenseFee = LOW_LICENSE_FEE
+    else:
+        LicenseFee = HIGH_LICENSE_FEE
+    
     ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
 
+#=====
+#Loop Entry Here.
+#=====
+
+
+#=====
+#Output Starts Right Here.
+#=====
         #Here comments are used to help line up my invoice output details
     print()
     print()
@@ -91,11 +113,11 @@ def Receipt_gen_id():
     print("Honest Harry's Car Sales                         Invoice Date:",CURRENT_DATE.strftime("%a %m, %Y"))
     print("Used Car Salles and Receipt                      Receipt No:   ",   ReceiptID)
     print()                                           
-    print("                                           Sale Price:",)#Sale Price Here-
-    print("Sold to:                                   Trade Allowance:",)#Add Trade Allowance Here-
+    print(f"                                           Sale Price:          ${SalePrice:>5,.2f}")#Sale Price Here-
+    print(F"Sold to:                                   Trade Allowance:     ${TradeAllow:>5,.2f}") #Add Trade Allowance Here-
     print("                                           -------------------------------------")
-    print(f"{FirstName[0]}. {LastName}                             Price After Trade:") #Price after Trade needs to be added -
-    print(f"{format_phone(Phone)}                              License Fee:",) # Print Out License Fee Here -
+    print(f"{FirstName[0]}. {LastName}                             Price After Trade:   ${PriceAfterTrade:>5,.2f}") #Price after Trade needs to be added -
+    print(f"{format_phone(Phone)}                              License Fee:         ${LicenseFee:>5,.2f}") # Print Out License Fee Here -
     print("                                           Transfer Fee:")
     print("                                           -------------------------------------")
     print("Car Details:                               SubTotal:")
@@ -117,7 +139,12 @@ def Receipt_gen_id():
     print("   ---------------------------------------------------------------------")
     print("   First Payment Date: ")
     print("--------------------------------------------------------------------------------")
-    return ReceiptID, format_phone
+    print("                            Best Used Cars In Town !! ")
+    print()
+    print()
+    print()
+    
+    return ReceiptID, format_phone(Phone)
     
 
 
@@ -128,18 +155,6 @@ def Receipt_gen_id():
     
 
 
+#Return Funciton 
 
-#=====
-#Calulations Here. 
-#=====
-
-
-#=====
-#Loop Entry Here.
-#=====
-
-
-#=====
-#Output Starts Right Here.
-#=====
 Receipt_gen_id()
