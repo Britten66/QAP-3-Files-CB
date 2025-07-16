@@ -50,14 +50,17 @@ MAX_YEARS = 4
 #=====
 
 
-# formatting the phone number funciton here
-
 def format_phone(Phone):
 
     area = Phone[0:3]
     middle = Phone[3:6]
     end = Phone[6:10]
     return "(" + area + ")" + middle + "-" + end 
+
+def first_payment_date():
+    one_month = datetime.timedelta(days=30)
+    return (CURRENT_DATE + one_month).strftime("%b %d, %Y")
+
 
 # receipt ID here 
 def Receipt_gen_id():
@@ -72,12 +75,14 @@ def Receipt_gen_id():
      LastFourPhone = Phone[-4:]
 
     else:
-        print("Phone Number Is invalid. Please try again")
-
+            print("Phone Number Is invalid. Please try again")
+            return
 
     Initials = FirstName[0].upper() + LastName[0].upper()
     LastThreePlate = Plate[-3:]
    
+   # formatting the phone number funciton here
+
 
 #=====
 #Calulations Here. 
@@ -98,6 +103,12 @@ def Receipt_gen_id():
     
     SubTot = SalePrice - PriceAfterTrade + LicenseFee
     SubTot = float(SubTot)
+    #Subtotal finished. Now Here is the added Tax
+    HST = PriceAfterTrade * HST_RATE
+    HST = float(HST)
+    #After Tax Added in here is Total Sales Price With Tax
+    TotSalesPrice = PriceAfterTrade + LicenseFee + HST
+    TotSalesPrice = float(TotSalesPrice)
 
 
     ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
@@ -130,11 +141,11 @@ def Receipt_gen_id():
     print(f"                                           Transfer Fee:        ${TransFee:>5,.2f}")
     print("                                           -------------------------------------")
     print(f"Car Details:                               SubTotal:            ${SubTot:>5,.2f}  ") # make sure to add lux tax etc etc 
-    print("                                           HST:")
+    print(f"                                           HST:                 ${HST:>5,.2f}")
     print("                                           -------------------------------------")
-            # Ended Before Car Details 
-        #Pick Up HEre
-    print("                                           Total Sales Price: ")
+    # Ended Before Car Details 
+    #Pick Up HEre
+    print(f"                                           Total Sales Price:   ${TotSalesPrice:>5,.2f}")
     print()
     print("--------------------------------------------------------------------------------")
     print()
@@ -146,8 +157,8 @@ def Receipt_gen_id():
     print("      3              36           $999.99       $99,999.99     $9,999.99")
     print("      4              48           $999.99       $99,999.99     $9,999.99")
     print("   ---------------------------------------------------------------------")
-    print("   First Payment Date: ")
-    print("--------------------------------------------------------------------------------")
+    print(f"   First Payment Date:  {first_payment_date()}")
+    print("-------------------------------------------------------------------------------")
     print("                            Best Used Cars In Town !! ")
     print()
     print()
