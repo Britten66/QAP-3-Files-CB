@@ -34,6 +34,8 @@ HIGH_LICENSE_FEE = 165.00
 
 LICENSE_PRICE_LIM = 15000.00
 
+TRANS_FEE_RATE = 0.01
+
 MAX_SELLING_PRICE = 50000.00
 
 MONTHLY_INTERET = 39.99
@@ -64,6 +66,7 @@ def Receipt_gen_id():
     LastName = "McDufferson" #input("Enter Your Last Name: ")
     Plate = "Duff4588" #input("Enter Your Plate Number: ")
     Phone = "7095365548" #input("Enter Your Phone Number: ")
+    CarDetail = input("Please Enter The Car Make: ")
      
     if len(Phone) == 10 and Phone.isdigit():
      LastFourPhone = Phone[-4:]
@@ -85,13 +88,18 @@ def Receipt_gen_id():
     TradeAllow = 5000.00
     TradeAllow = float(TradeAllow)
     PriceAfterTrade = SalePrice - TradeAllow
-   
+    TransFee = SalePrice * TRANS_FEE_RATE
+    TransFee = float(TransFee)
 
     if PriceAfterTrade < LICENSE_PRICE_LIM:
         LicenseFee = LOW_LICENSE_FEE
     else:
         LicenseFee = HIGH_LICENSE_FEE
     
+    SubTot = SalePrice - PriceAfterTrade + LicenseFee
+    SubTot = float(SubTot)
+
+
     ReceiptID = Initials + "-" + LastThreePlate + "-" + LastFourPhone 
 
 #=====
@@ -106,6 +114,7 @@ def Receipt_gen_id():
     print()
     print()
     print()#Kept format as per the QAP instructions in this part. Refraining from any kind of change that is not needed
+
                     #1        #2        #3        #4        #5        #6        #7         #8
                     #         #         #         #         #         #         #         #
     print("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
@@ -118,9 +127,9 @@ def Receipt_gen_id():
     print("                                           -------------------------------------")
     print(f"{FirstName[0]}. {LastName}                             Price After Trade:   ${PriceAfterTrade:>5,.2f}") #Price after Trade needs to be added -
     print(f"{format_phone(Phone)}                              License Fee:         ${LicenseFee:>5,.2f}") # Print Out License Fee Here -
-    print("                                           Transfer Fee:")
+    print(f"                                           Transfer Fee:        ${TransFee:>5,.2f}")
     print("                                           -------------------------------------")
-    print("Car Details:                               SubTotal:")
+    print(f"Car Details:                               SubTotal:            ${SubTot:>5,.2f}  ") # make sure to add lux tax etc etc 
     print("                                           HST:")
     print("                                           -------------------------------------")
             # Ended Before Car Details 
