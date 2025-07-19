@@ -56,7 +56,7 @@ LUX_TAX_RATE = 0.016
 while True:
     #here is for the first name 
         while True:
-            FirstName = input("Enter Your First Name ( Enter END To Cancel ): ")
+            FirstName = "Chris" #input("Enter Your First Name ( Enter END To Cancel ): ")
             if FirstName == "END":
                 print("Exiting now... Goodbye  ")
                 exit()
@@ -68,7 +68,7 @@ while True:
 
             #here is the validation for last name 
         while True:
-            LastName = input("Enter Your Last Name: ")
+            LastName = "Fish" #input("Enter Your Last Name: ")
             if LastName != "":
                 LastName = LastName.title()
                 break
@@ -79,14 +79,14 @@ while True:
         #Phone Number Validation Here
 
         while True:
-            Phone = input("Enter Your Phone Number (Max 10 Digits) ")
+            Phone = "1234567890" #input("Enter Your Phone Number (Max 10 Digits) ")
             if len(Phone) == 10 and Phone.isdigit():
                 break
             else:
                 print("Phone Number Must Be Exactly 10 Digits. ")
             
         while True:
-            Plate = input("Enter Plate Number (XXX999) ").upper()
+            Plate = "ABC321" #input("Enter Plate Number (XXX999) ").upper()
             if len(Plate) == 6 and Plate[:3].isalpha() and Plate[3:].isdigit(): # This was added and researched, to make sure the plate will be alphanumeric and digit 
                 break
             else:
@@ -96,14 +96,14 @@ while True:
 
 
         while True:
-            CarYear =  input("Enter Car Year (e.x 2010) ")
+            CarYear =  "1982" #input("Enter Car Year (e.x 2010) ")
             if CarYear.isdigit() and len(CarYear) == 4:
                 break
             else:
                 print("Please Enter Valid 4-digit Year")
 
         while True: 
-            CarMake = input("Enter The Vehicle Make (E.x Toyota) ")
+            CarMake = "Ford" #input("Enter The Vehicle Make (E.x Toyota) ")
             if CarMake:
                 break
             else:
@@ -113,7 +113,7 @@ while True:
 
         while True: 
              try:
-              SalePrice = input("Enter Selling Price ( Up to $50,000 ) ")
+              SalePrice = 25000 #input("Enter Selling Price ( Up to $50,000 ) ")
               SalePrice = float(SalePrice)
               if SalePrice <= 50000:
                     
@@ -128,7 +128,7 @@ while True:
         #Trade In Val - Validations
 
         while True:
-            TradeVal = input("Enter The Trade In Amount ( Cannot Exceed Sale Price ) : ")
+            TradeVal = "1500" #input("Enter The Trade In Amount ( Cannot Exceed Sale Price ) : ")
             if TradeVal.isdigit():
                 TradeVal = float(TradeVal)
                 if TradeVal <= SalePrice:
@@ -136,7 +136,7 @@ while True:
                 print("Trade in must be anumber no higher than the selling price. ")
         
         while True:
-            SalePerson = input("Enter The Sales Person Name: ")
+            SalePerson = "Craig" #input("Enter The Sales Person Name: ")
             if SalePerson != "":
                 SalePerson = SalePerson.title()
                 break
@@ -202,17 +202,17 @@ while True:
         print("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
         print()                                                                                             #adding dates like this allowed "/" ??
         print(f"Honest Harry's Car Sales                         Invoice Date:  {CURRENT_DATE.strftime('%a %d, %Y')}")
-        print(f"Used Car Salles and Receipt                      Receipt No:        {ReceiptID} ")
+        print(f"Used Car Salles and Receipt                      Receipt No:    {ReceiptID} ")
         print()                                           
         print(f"                                           Sale Price:          ${SalePrice:>5,.2f}")#Sale Price Here-
         print(F"Sold to:                                   Trade Allowance:     ${TradeVal:>5,.2f}") #Add Trade Allowance Here-
         print("                                           -------------------------------------")
-        print(f"{FirstName[0]}. {LastName}                                Price After Trade:   ${PriceAfterTrade:>5,.2f}") #Price after Trade needs to be added -
+        print(f"{FirstName[0]}. {LastName}                                    Price After Trade:   ${PriceAfterTrade:>6,.2f}") #Price after Trade needs to be added -
         print(f"{FormatValues.format_phone(Phone)}                              License Fee:         ${LicenseFee:>5,.2f}") # Print Out License Fee Here -
         print(f"                                           Transfer Fee:        ${TransFee:>5,.2f}")
         print("                                           -------------------------------------")
         print(f"Car Details:                               SubTotal:            ${SubTot:>5,.2f}  ") # make sure to add lux tax etc etc 
-        print(f" {CarMake}{CarYear}                        HST:                 ${HST:>5,.2f}")
+        print(f" {CarMake}, {CarYear}                                  HST:                 ${HST:>5,.2f}")
         print("                                           -------------------------------------")
         # Ended Before Car Details 
         #Pick Up HEre
@@ -230,13 +230,15 @@ while True:
             TotalPrice = TotSalesPrice + FinFee
             MonthPay = TotalPrice / PayNum
 
-            print(f" {year<2}  {PayNum:<2}    ${FinFee:>7,.2f} ${TotalPrice:>9,.2f} ${MonthPay:>9,.2f}")
+            print(f"      {year:<11}  {PayNum:<16}${FinFee:>2,.2f}       ${TotalPrice:>2,.2f}      ${MonthPay:>4,.2f}")
 
         print("   ---------------------------------------------------------------------")
-        print(f"   First Payment Date:  {FormatValues.first_payment_date()}")
+        print(f"                        First Payment Date:  {FormatValues.first_payment_date()}")
         print("-------------------------------------------------------------------------------")
         print("                            Best Used Cars In Town !! ")
         print()
         print()
        
         print()
+
+        wait = input("Press Enter To Try Again")

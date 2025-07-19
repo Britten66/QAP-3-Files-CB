@@ -9,7 +9,7 @@ def Receipt_gen_id(FirstName, LastName, Plate, Phone):
         Initials = FirstName[0].upper() + LastName[0].upper()
         LastThree = Plate[-3:]
         LastFour = Phone[-4:]
-        return(f"{Initials} - {LastThree} - {LastFour}")
+        return(f"{Initials}-{LastThree}-{LastFour}")
       else:
        print("Phone Number Is invalid. Please try again")
       exit()
