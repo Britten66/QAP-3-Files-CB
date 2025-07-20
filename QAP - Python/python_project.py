@@ -107,9 +107,23 @@ while True:
             if CarMake:
                 break
             else:
-                print("Car Make Must Be Entred ")
-            
+                print("Car Model Must Be Entred ")
+
+        while True: 
+             CarMod = "Mustang" #input("Enter The Vehicle Make (E.x Toyota) ")
+             if CarMod:
+                   break
+             else:
+              print("Car Make Must Be Entred ")
             #Selling Pirce Validation
+
+        while True:
+            mileage_input = input("Enter Kilometers (km): ")
+            if mileage_input.isdigit():
+                mileage = FormatValues.mileage_valid(mileage_input)
+                break
+            else:
+                print("Please Enter Whole Number Mileage. ")
 
         while True: 
              try:
@@ -211,9 +225,9 @@ while True:
         print(f"{FormatValues.format_phone(Phone)}                              License Fee:         ${LicenseFee:>5,.2f}") # Print Out License Fee Here -
         print(f"                                           Transfer Fee:        ${TransFee:>5,.2f}")
         print("                                           -------------------------------------")
-        print(f"Car Details:                               SubTotal:            ${SubTot:>5,.2f}  ") # make sure to add lux tax etc etc 
-        print(f" {CarMake}, {CarYear}                                  HST:                 ${HST:>5,.2f}")
-        print("                                           -------------------------------------")
+        print(f" Car Details:                              SubTotal:            ${SubTot:>5,.2f}  ") # make sure to add lux tax etc etc 
+        print(f" {CarYear} {CarMake}  {CarMod}                        HST:                 ${HST:>5,.2f}")
+        print(f" Mileage: {mileage:<5,d}km                        -------------------------------------")
         # Ended Before Car Details 
         #Pick Up HEre
         print(f"                                           Total Sales Price:   ${TotSalesPrice:>5,.2f}")
@@ -230,7 +244,7 @@ while True:
             TotalPrice = TotSalesPrice + FinFee
             MonthPay = TotalPrice / PayNum
 
-            print(f"      {year:<11}  {PayNum:<16}${FinFee:>2,.2f}       ${TotalPrice:>2,.2f}      ${MonthPay:>4,.2f}")
+            print(f"      {year:<11}  {PayNum:<16}${FinFee:<2,.2f}       ${TotalPrice:<2,.2f}      ${MonthPay:<4,.2f}")
 
         print("   ---------------------------------------------------------------------")
         print(f"                        First Payment Date:  {FormatValues.first_payment_date()}")

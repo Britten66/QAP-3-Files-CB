@@ -2,7 +2,7 @@
 
 import datetime
 
-
+#Receipt Generator Function
 
 def Receipt_gen_id(FirstName, LastName, Plate, Phone):
       if len(Phone) == 10 and Phone.isdigit():
@@ -14,6 +14,7 @@ def Receipt_gen_id(FirstName, LastName, Plate, Phone):
        print("Phone Number Is invalid. Please try again")
       exit()
 
+#Here is current Date 
 
 CURRENT_DATE = datetime.datetime.now() 
 
@@ -21,7 +22,7 @@ def first_payment_date():
     one_month = datetime.timedelta(days=30)
     return (CURRENT_DATE + one_month).strftime("%b %d, %Y")
 
-
+#Format Phone Function
 
 def format_phone(Phone):
 
@@ -29,6 +30,23 @@ def format_phone(Phone):
     middle = Phone[3:6]
     end = Phone[6:10]
     return "(" + area + ")" + middle + "-" + end 
+
+
+
+#Mileage Function
+
+def mileage_valid(mileage_input):
+    try:
+         mileage = int(mileage_input)
+         if mileage >= 0:
+            return mileage
+         else:
+            print("Mileage must be greater than zero ")
+    except ValueError:
+        print("Mileage Must Be Whole Number")
+            
+   
+
 
 
 def FDollar2(DollarValue):
