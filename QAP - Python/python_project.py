@@ -56,7 +56,7 @@ LUX_TAX_RATE = 0.016
 while True:
     #here is for the first name 
         while True:
-            FirstName = "Chris" #input("Enter Your First Name ( Enter END To Cancel ): ")
+            FirstName = input("Enter Your First Name ( Enter END To Cancel ): ")
             if FirstName == "END":
                 print("Exiting now... Goodbye  ")
                 exit()
@@ -68,7 +68,7 @@ while True:
 
             #here is the validation for last name 
         while True:
-            LastName = "Fish" #input("Enter Your Last Name: ")
+            LastName = input("Enter Your Last Name: ")
             if LastName != "":
                 LastName = LastName.title()
                 break
@@ -79,14 +79,14 @@ while True:
         #Phone Number Validation Here
 
         while True:
-            Phone = "1234567890" #input("Enter Your Phone Number (Max 10 Digits) ")
+            Phone = input("Enter Your Phone Number (Max 10 Digits) ")
             if len(Phone) == 10 and Phone.isdigit():
                 break
             else:
                 print("Phone Number Must Be Exactly 10 Digits. ")
             
         while True:
-            Plate = "ABC321" #input("Enter Plate Number (XXX999) ").upper()
+            Plate = input("Enter Plate Number (XXX999) ").upper()
             if len(Plate) == 6 and Plate[:3].isalpha() and Plate[3:].isdigit(): # This was added and researched, to make sure the plate will be alphanumeric and digit 
                 break
             else:
@@ -96,21 +96,21 @@ while True:
 
 
         while True:
-            CarYear =  "1982" #input("Enter Car Year (e.x 2010) ")
+            CarYear =  input("Enter Car Year (e.x 2010) ")
             if CarYear.isdigit() and len(CarYear) == 4:
                 break
             else:
                 print("Please Enter Valid 4-digit Year")
 
         while True: 
-            CarMake = "Ford" #input("Enter The Vehicle Make (E.x Toyota) ")
+            CarMake = input("Enter The Vehicle Make (E.x Toyota) ")
             if CarMake:
                 break
             else:
                 print("Car Model Must Be Entred ")
 
         while True: 
-             CarMod = "Mustang" #input("Enter The Vehicle Make (E.x Toyota) ")
+             CarMod = input("Enter The Vehicle Model (E.x LandCruiser) ")
              if CarMod:
                    break
              else:
@@ -213,7 +213,7 @@ while True:
 
                         #1        #2        #3        #4        #5        #6        #7         #8
                         #         #         #         #         #         #         #         #
-        print("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
+       # print("12345678901234567890123456789012345678901234567890123456789012345678901234567890")
         print()                                                                                             #adding dates like this allowed "/" ??
         print(f"Honest Harry's Car Sales                         Invoice Date:  {CURRENT_DATE.strftime('%a %d, %Y')}")
         print(f"Used Car Salles and Receipt                      Receipt No:    {ReceiptID} ")
