@@ -1,3 +1,6 @@
+
+
+
 // Desc: Mo's Lawncare Service Invoice Calculator 
 // Author: Christopher Britten
 // Dates: 07/15/2025
@@ -36,7 +39,7 @@ const BORDER_PERCENT = 0.04;
 
 const BORDER_RATE = 0.35;
 
-const LAWN = 0.95;
+const LAWN_PERC = 0.95;
 
 const LAWN_RATE = 0.07;
 
@@ -74,15 +77,15 @@ const ENV_TAX_RATE = 0.014;
 
      let borderCharge = borderSqFt * BORDER_RATE
 
-     let lawnSwFt = custSqFt * LAWN;
+     let lawnSqFt = custSqFt * LAWN_PERC;
 
-     let lawnCharge = custSqFt * LAWN_RATE;
+     let lawnCharge = lawnSqFt * LAWN_RATE;
 
      let fertCharge = custSqFt * FERT_RATE;
 
      let servTotal = borderCharge + lawnCharge + fertCharge;
 
-      let hst = servTotal * HST_RATE;  
+     let hst = servTotal * HST_RATE;  
 
      let envFee = servTotal * ENV_TAX_RATE;
 
@@ -164,7 +167,7 @@ const ENV_TAX_RATE = 0.014;
 
 
     // Invoice total Here
-    document.writeln("<tr><td>Invoice Total:</td><td class ='right-align'>" + cur2Format.format(servTotal) + "</td></tr>");   
+    document.writeln("<tr><td>Invoice Total:</td><td class ='right-align'>" + cur2Format.format(grandTotal) + "</td></tr>");   
 
 
     //Footer 
