@@ -1,10 +1,8 @@
 
-
-
-// Desc: Mo's Lawncare Service Invoice Calculator 
 // Author: Christopher Britten
 // Dates: 07/15/2025
-
+// Desc: The Javascript program calculates and displays an incvoice for Mo's Lawncare Services based on user input. 
+// THe Customer Enters Name,Address,Phone,SAQft and the program will calculate and output a table.
 
 
 var $ = function (id) {
