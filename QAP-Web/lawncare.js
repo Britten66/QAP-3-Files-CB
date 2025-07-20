@@ -86,66 +86,76 @@ const ENV_TAX_RATE = 0.014;
 
 
 
-    // Output Table Seciton Starts 
+    // Output Table Seciton Start
 
-
-    document.writeln("<br/>");
-    document.writeln("<table style = 'width: 400px; border-collapse: collapse; font-family: sans-serif; border: 1px solid black;'>");
-
+    document.writeln("<table class = 'invoicetable'>");
     // Header Here
-    document.writeln("<tr style='background-color: #f6c600; color: black;'> ");
-    document.writeln("<td colspan= '2' style='padding: 10px; font-weight: bold;'>Mo's Lawncare Services - Customer Invoice</td>");
+    document.writeln("<tr>")
+    document.writeln("<tr class = 'headerVert'>")
+    document.writeln("<td colspan= '2' class='invoiceVert'>Mo's Lawncare Services - Customer Invoice</td>");
     document.writeln("</tr>");
 
-    // Customer Detail Block
-    document.writeln("<tr><td colspan = '2' style = ' padding: 10px;'>")
+    // Customer Detail
+    document.writeln("<tr>")
+    document.writeln("<td colspan = '2'>")
     document.writeln("Customer Details: <br/>");
     document.writeln(custName + "<br/>");
     document.writeln(stAdd + "<br/>");
     document.writeln(city + " " + phone + "<br/>")
     document.writeln("Property size (in sw ft): " + custSqFt + " SqFt");
-    document.writeln("</td></tr>")
+    document.writeln("</td>");
+    document.writeln("</tr>");
 
-     // Cost Row
+    
     // border cost
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; '> Border Cost </td>");
-    document.writeln("<td style ='border: 1px solid black; text align: right; padding: 6px;'>" + cur2Format.format(borderCharge) + "</td></tr>");
+    document.writeln("<tr><td> Border Cost:</td><td>$" + borderCharge.toFixed(2) + "</td></tr>");
+    
 
     // Moving Cost Here
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; '> Moving Cost </td>");
-    document.writeln("<td style = 'border: 1px solid black; text-align: right; padding: 6px; '>" + cur2Format.format(lawnCharge) + "</td></tr>");
-
+    document.writeln("<tr><td> Mowing Cost:</td><td>$" + lawnCharge.toFixed(2) + "</td></tr>");
     // Fertilizer Cost 
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; '>Fertilizer Cost</td>");
-    document.writeln("<td style = 'border: 1px solid black; text-align: right; padding: 6px; '>" + cur2Format.format(fertCharge) + "</td></tr>");
+    document.writeln("<tr><td> Fertilizer Cost:</td><td>$" + fertCharge.toFixed(2) + "</td></tr>");   
+    
+        // Empty Row 
+    document.writeln("<tr>");
+    document.writeln("<tr><td colspan='2' class='blankrow' >&nbsp;</td></tr>");
+    
+    
 
     //Total Charge
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; '> Total Cost </td>");
-    document.writeln("<td style = 'border: 1px solid black; text-align: right; padding: 6px; '>" + cur2Format.format(servTotal) + "</td></tr>");
+    document.writeln("<tr><td> Total Cost:</td><td>$" + servTotal.toFixed(2) + "</td></tr>");   
 
+    // Empty Row 
+    document.writeln("<tr>");
+    document.writeln("<td colspan='2' class='blankrow' >&nbsp;</td>");
+    document.writeln("</tr>");
     // HST Here
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; '> Sales Tax (HST) </td>");
-    document.writeln("<td style = 'border: 1px solid black; text-align: right; padding: 6px; '>" + cur2Format.format(hst) + "</td></tr>");
+    document.writeln("<tr><td> Sales Tax (HST):</td><td>$" + hst.toFixed(2) + "</td></tr>");   
+
 
     // Enviromental fee
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; '> Enviromental Tax </td>");
-    document.writeln("<td style = 'border: 1px solid black; text-align: right; padding: 6px; '>" + cur2Format.format(envFee) + "</td></tr>");
+    document.writeln("<tr><td>Enviromental Cost:</td><td>$" + envFee.toFixed(2) + "</td></tr>");   
 
+    // Empty Row 
+
+    document.writeln("<tr><td colspan='2' class='blankrow' >&nbsp;</td></tr>");
+    
     // Invoice total Here
+    document.writeln("<tr><td>Invoice Total:</td><td>$" + grandTotal.toFixed(2) + "</td></tr>");   
 
-    document.writeln("<tr><td style = ' border: 1px solid black; padding: 6px; font-weight: bold;'> Invoice Total </td>");
-    document.writeln("<td style = 'border: 1px solid black;  text-align: right; padding: 6px; font-weight: bold; '>" + cur2Format.format(grandTotal) + "</td></tr>");
 
     //Footer 
-    document.writeln("<tr style='background-color: #f6c600; color: black; font-weight bold;'> ");
-    document.writeln("<td colspan = '2' style = 'text-align: center; padding: 10px; font-weight bold; '>Turning Lawns Into Landscapes  </td>")
+    document.writeln("<tr>");
+    document.writeln("<td colspan = '2' class='footer'>Turning Lawns Into Landscapes  </td>")
     document.writeln("</tr>");
 
 
      }else{
-      alert("Please Enter a valid Swuare FDFootage Greater Than 0")
+      alert("Please Enter a valid Square Footage Greater Than 0")
     }
   
 
 
+
+ 
 

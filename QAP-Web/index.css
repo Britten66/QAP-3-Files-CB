@@ -29,11 +29,37 @@ body {
 }
 
 
+
 /* Styles for the header section */
-table,th,td {
-  text-align: center;
-  margin: auto;
+
+.headerVert {
+  background-color: orange;
+  color: black;
+  padding: 10px;
+  font-weight: bold;;
+}
+
+.headerCol {
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+.invoicetable{
+  width: 400px;
   border-collapse: collapse;
+  font-family: sans-serif;
+  border: 1px solid black;
+  margin: auto
+}
+
+.invoicetable th {
+  border: 1px solid yellow;
+}
+
+.invoicetable td {
+  border: 1px solid black;
+  padding: 8px;
 }
 
 /* Styles for the nav section */
@@ -42,8 +68,27 @@ table,th,td {
   padding: 10px;
 }
 
-/* Styles for the main / sections section */
+
+/* Styles for the nav section */
+.centered {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Styles for blank */
+
+.blankrow{
+  height: 20px;
+  border: 1px solid black;
+}
 
 
 /* Styles for the footer section */
 
+.footer{
+   background-color: orange;
+  color: black;
+  padding: 10px;
+  font-weight: bold;;
+  text-align: center;
+}
