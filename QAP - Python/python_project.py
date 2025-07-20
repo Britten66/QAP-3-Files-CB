@@ -2,7 +2,7 @@
 #=======================================
 #Comment Like A Semi-Pro
 #Author: Christopher Britten
-# SD-15
+# SD-15 - Study Group 1
 #Date: 2025-07-10
 #Description: "Honest" Harry's Used Car Sales Tracker
 #This program is designed to assist Harry in keeping track of his car sales.
