@@ -54,15 +54,19 @@ const ENV_TAX_RATE = 0.014;
 
 // Grabbing inputs from customer 
 
-  let custName = "Chris"; // prompt("Enter The Membership Number: ". "99999");
+  let custName =  prompt("Enter The Customer Name: ");
 
-  let stAdd = "123 Main St"; // prompt("Enter The Membership Number: ". "99999");
+  let custLast =  prompt("Enter The Customer Last Name: ");
 
-  let city = "St. John's"; //prompt("Enter The Membership Number: ". "99999");
+  let stAdd =  prompt("Enter Street Address: ");
 
-  let phone = "123456789"; //parsefloat prompt("")
+  let city = prompt("Enter The City: ");
+
+  let phone = prompt("Enter The Customer Phone Number (9999999)")
+
+  let formatttedPhone = phone.slice(0,3) + "-" + phone.slice(3,6) + "-" + phone.slice(6,11);
   
-  let custSqFt = 2000 //prompt("Enter The Membership Number: ". "99999");
+  let custSqFt = parseFloat(prompt("Enter The Square Footage: "));
 
    if (custSqFt > 0) {
 
@@ -90,63 +94,82 @@ const ENV_TAX_RATE = 0.014;
 
     document.writeln("<table class = 'invoicetable'>");
     // Header Here
-    document.writeln("<tr>")
+    
     document.writeln("<tr class = 'headerVert'>")
-    document.writeln("<td colspan= '2' class='invoiceVert'>Mo's Lawncare Services - Customer Invoice</td>");
+    document.writeln("<td colspan= '2'>Mo's Lawncare Services - Customer Invoice</td>");
     document.writeln("</tr>");
 
-    // Customer Detail
+
+    // formatting to line up everything 
     document.writeln("<tr>")
-    document.writeln("<td colspan = '2'>")
-    document.writeln("Customer Details: <br/>");
-    document.writeln(custName + "<br/>");
-    document.writeln(stAdd + "<br/>");
-    document.writeln(city + " " + phone + "<br/>")
-    document.writeln("Property size (in sw ft): " + custSqFt + " SqFt");
+    document.writeln("<td colspan = '2' class = 'left-align'>");
+    
+    document.writeln("<br/> Customer Details: </br></br>");
+
+    
+
+
+    // Customer Detail
+    document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + custName +" " +custLast + "<br/>")
+    document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + stAdd + "<br/>")
+    document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + city + ",  " + formatttedPhone + "<br/></br>")
+
+    document.writeln("Property Size (In Sq Ft): " + custSqFt +" Sqft" + "<br/></br>")
+    
+   
+    
+    
+
+
     document.writeln("</td>");
     document.writeln("</tr>");
 
     
     // border cost
-    document.writeln("<tr><td> Border Cost:</td><td>$" + borderCharge.toFixed(2) + "</td></tr>");
+    document.writeln("<tr><td> Border Cost:</td><td class ='right-align'>" + cur2Format.format(borderCharge) + "</td></tr>");
     
 
     // Moving Cost Here
-    document.writeln("<tr><td> Mowing Cost:</td><td>$" + lawnCharge.toFixed(2) + "</td></tr>");
+    document.writeln("<tr><td> Mowing Cost:</td><td class ='right-align'>" + cur2Format.format(lawnCharge) + "</td></tr>");
     // Fertilizer Cost 
-    document.writeln("<tr><td> Fertilizer Cost:</td><td>$" + fertCharge.toFixed(2) + "</td></tr>");   
+    document.writeln("<tr><td> Fertilizer Cost:</td><td class ='right-align'>" + cur2Format.format(fertCharge) + "</td></tr>");   
     
         // Empty Row 
     document.writeln("<tr>");
-    document.writeln("<tr><td colspan='2' class='blankrow' >&nbsp;</td></tr>");
-    
+    document.writeln("<td class='blankline' >&nbsp;</td>");
+    document.writeln("</tr>");
     
 
     //Total Charge
-    document.writeln("<tr><td> Total Cost:</td><td>$" + servTotal.toFixed(2) + "</td></tr>");   
+    document.writeln("<tr><td> Total Cost:</td><td class ='right-align'>" + cur2Format.format(servTotal) + "</td></tr>");   
 
     // Empty Row 
     document.writeln("<tr>");
-    document.writeln("<td colspan='2' class='blankrow' >&nbsp;</td>");
+    document.writeln("<td class='blankline'>&nbsp;</td>");
     document.writeln("</tr>");
+
+
     // HST Here
-    document.writeln("<tr><td> Sales Tax (HST):</td><td>$" + hst.toFixed(2) + "</td></tr>");   
+    document.writeln("<tr><td> Sales Tax (HST):</td><td class ='right-align'>" + cur2Format.format(hst) + "</td></tr>");   
 
 
     // Enviromental fee
-    document.writeln("<tr><td>Enviromental Cost:</td><td>$" + envFee.toFixed(2) + "</td></tr>");   
+    document.writeln("<tr><td>Enviromental Cost:</td><td class ='right-align'>" + cur2Format.format(envFee) + "</td></tr>");   
 
-    // Empty Row 
+    // Empty line
+    document.writeln("<tr>");
+    document.writeln("<td class='blankline' >&nbsp;</td>");
+    document.writeln("</tr>");
 
-    document.writeln("<tr><td colspan='2' class='blankrow' >&nbsp;</td></tr>");
-    
+
+
     // Invoice total Here
-    document.writeln("<tr><td>Invoice Total:</td><td>$" + grandTotal.toFixed(2) + "</td></tr>");   
+    document.writeln("<tr><td>Invoice Total:</td><td class ='right-align'>" + cur2Format.format(servTotal) + "</td></tr>");   
 
 
     //Footer 
     document.writeln("<tr>");
-    document.writeln("<td colspan = '2' class='footer'>Turning Lawns Into Landscapes  </td>")
+    document.writeln("<td colspan = '2' class='footer' >Turning Lawns Into Landscapes  </td>")
     document.writeln("</tr>");
 
 
